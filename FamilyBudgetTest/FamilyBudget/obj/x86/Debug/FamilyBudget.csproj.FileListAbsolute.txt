@@ -1,10 +1,11 @@
-D:\Studing\Eleks\FamilyBudgetTest\FamilyBudget\obj\x86\Debug\FamilyBudget.Form1.resources
-D:\Studing\Eleks\FamilyBudgetTest\FamilyBudget\obj\x86\Debug\FamilyBudget.Properties.Resources.resources
-D:\Studing\Eleks\FamilyBudgetTest\FamilyBudget\obj\x86\Debug\FamilyBudget.csproj.GenerateResource.Cache
-D:\Studing\Eleks\FamilyBudgetTest\FamilyBudget\bin\Debug\FamilyBudget.exe
-D:\Studing\Eleks\FamilyBudgetTest\FamilyBudget\bin\Debug\FamilyBudget.pdb
 D:\Studing\Eleks\FamilyBudgetTest\FamilyBudget\obj\x86\Debug\FamilyBudget.exe
 D:\Studing\Eleks\FamilyBudgetTest\FamilyBudget\obj\x86\Debug\FamilyBudget.pdb
+D:\Studing\Eleks\FamilyBudgetTest\FamilyBudget\bin\Debug\FamilyBudget.exe
+D:\Studing\Eleks\FamilyBudgetTest\FamilyBudget\bin\Debug\FamilyBudget.pdb
 D:\Studing\Eleks\FamilyBudgetTest\FamilyBudget\obj\x86\Debug\FamilyBudget.csprojResolveAssemblyReference.cache
-D:\Studing\Eleks\FamilyBudgetTest\FamilyBudget\obj\x86\Debug\FamilyBudget.ProductsEdit.resources
+D:\Studing\Eleks\FamilyBudgetTest\FamilyBudget\obj\x86\Debug\FamilyBudget.Autorization.resources
 D:\Studing\Eleks\FamilyBudgetTest\FamilyBudget\obj\x86\Debug\FamilyBudget.Edit.resources
+D:\Studing\Eleks\FamilyBudgetTest\FamilyBudget\obj\x86\Debug\FamilyBudget.Form1.resources
+D:\Studing\Eleks\FamilyBudgetTest\FamilyBudget\obj\x86\Debug\FamilyBudget.ProductsEdit.resources
+D:\Studing\Eleks\FamilyBudgetTest\FamilyBudget\obj\x86\Debug\FamilyBudget.Properties.Resources.resources
+D:\Studing\Eleks\FamilyBudgetTest\FamilyBudget\obj\x86\Debug\FamilyBudget.csproj.GenerateResource.Cache

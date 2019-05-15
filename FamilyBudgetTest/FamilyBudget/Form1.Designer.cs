@@ -16,6 +16,8 @@ namespace FamilyBudget
 
             // открываем соединение с БД
             myConnection.Open();
+            
+            
         }
         /// <summary>
         /// Required designer variable.
@@ -110,11 +112,12 @@ namespace FamilyBudget
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(640, 9);
+            this.button4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button4.Location = new System.Drawing.Point(634, 11);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(21, 23);
             this.button4.TabIndex = 4;
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // dataGridView1
@@ -175,13 +178,16 @@ namespace FamilyBudget
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(218, 60);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 10;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged_1);
             // 
             // dateTimePicker2
             // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker2.Location = new System.Drawing.Point(455, 59);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
@@ -253,7 +259,7 @@ namespace FamilyBudget
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.dataGridView2);
-            this.panel1.Location = new System.Drawing.Point(199, 12);
+            this.panel1.Location = new System.Drawing.Point(168, 128);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 271);
             this.panel1.TabIndex = 18;

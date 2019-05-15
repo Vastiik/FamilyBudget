@@ -8,12 +8,16 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.OleDb;
 
-
 namespace FamilyBudget
 {
     public partial class Form1 : Form
     {
-
+        private static int userId;
+        public int UserId
+        {
+            get { return userId; }
+            set { userId = value; }
+        }
         private int memberId;
         private double budget;
         private double remainder;
@@ -56,49 +60,7 @@ namespace FamilyBudget
             progressBar1.Increment(Convert.ToInt32(remainder));
         }
 
-////метод передачі запиту до БД на виконання
-//        void execute(String^ query){
-//            connect->Open();
-//            System::Data::OleDb::OleDbCommand^ command = gcnew System::Data::OleDb::OleDbCommand(query,connect);
-//            command->ExecuteNonQuery();
-//            connect->Close();
-//        }
 
-//// метод повернення результатів виконання запиту
-//        void getQuerypostach(String^ query){		
-//            connect->Open();
-//            System::Data::OleDb::OleDbCommand^ command = gcnew System::Data::OleDb::OleDbCommand(query,connect);
-//            System::Data::OleDb::OleDbDataReader^ oledbRead=command->ExecuteReader();
-//            group->Clear();
-//            while(oledbRead->Read()){
-//              group->Add(gcnew postach(
-//                System::Convert::ToString(oledbRead["Nazva_Postachalnuka"]),
-//                System::Convert::ToString(oledbRead["Telephone"]),
-//                System::Convert::ToString(oledbRead["Adressa"]),
-//                System::Convert::ToString(oledbRead["Mail"]),
-//                System::Convert::ToInt32(oledbRead["id"])
-//              ));
-//            }
-//            oledbRead->Close();
-//            connect->Close();
-//            this->updateTable();
-//        }
-		
-//// метод оновлення таблиці dataGridView
-//        void updateTable(){
-//            int i=0;
-//            dataGridView1->Rows->Clear();
-//            for each(postach^ postach in group){
-//                this->dataGridView1->Rows->Add();
-//                this->dataGridView1->Rows[i]->Cells[0]->Value=postach->getId();
-//                this->dataGridView1->Rows[i]->Cells[1]->Value=postach->getName();
-//                this->dataGridView1->Rows[i]->Cells[2]->Value=postach->getTelephon();
-//                this->dataGridView1->Rows[i]->Cells[3]->Value=postach->getAdress();
-//                this->dataGridView1->Rows[i]->Cells[4]->Value=postach->getMail();
-//                ++i;
-//            }
-//        }
-        //--------------------------------------------------------------------
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -116,7 +78,7 @@ namespace FamilyBudget
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+        
             getProducts("SELECT [Products.Id], [Product_name], [Type],[Price] , [Daate], [Naame] FROM [Products],[Family] WHERE ([Member_id] = [Family.ID])");
         }
 
@@ -148,14 +110,15 @@ namespace FamilyBudget
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             myConnection.Close();
+            Application.Exit();    
         }
 
       
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            getProducts("SELECT [Products.Id], [Product_name], [Type],[Price] , [Daate], [Naame] FROM [Products],[Family] WHERE ([Member_id] = [Family.ID])");
             
+            getProducts("SELECT [Products.Id], [Product_name], [Type],[Price] , [Daate], [Naame] FROM [Products],[Family] WHERE ([Member_id] = [Family.ID])");      
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -183,7 +146,7 @@ namespace FamilyBudget
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            getProducts("SELECT * FROM Products WHERE Daate BETWEEN '%" + dateTimePicker1.Value + "%' AND '%" + dateTimePicker2.Value + "%';");
+            getProducts("SELECT * FROM Products WHERE Daate >= #" + dateTimePicker1.Value.Year +"/"+ dateTimePicker1.Value.Month+"/" + dateTimePicker1.Value.Day + "# AND Daate <=#" + dateTimePicker2.Value.Year+"/" + dateTimePicker2.Value.Month+"/" + dateTimePicker2.Value.Day + "#;");
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -255,6 +218,13 @@ namespace FamilyBudget
         {
             panel1.Hide();
         }
+
+        private void dateTimePicker1_ValueChanged_1(object sender, EventArgs e)
+        {
+            getProducts("SELECT * FROM Products WHERE Daate >= #" + dateTimePicker1.Value.Year + "/" + dateTimePicker1.Value.Month + "/" + dateTimePicker1.Value.Day + "# AND Daate <=#" + DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day + "#;");
+        }
+
+       
 
         
 
