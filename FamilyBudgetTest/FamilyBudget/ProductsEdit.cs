@@ -24,10 +24,11 @@ namespace FamilyBudget
             // открываем соединение с БД
             
         }
-        private void insert(string name, string type,double price, int member){
+        private void insert(string name, string type,double price){
+            Form1 f1 = new Form1();
             myConnection.Open();
 				String query="INSERT INTO Products([Product_name], [Type], [Price], [Daate], [Member_id])"
-					+"VALUES('"+name+"','"+type+"','"+price+"','"+DateTime.Now+"',"+member+");";
+					+"VALUES('"+name+"','"+type+"','"+price+"','"+DateTime.Now+"',"+f1.UserId+");";
 				OleDbCommand command = new OleDbCommand(query, myConnection);
             // получаем объект OleDbDataReader для чтения табличного результата запроса SELECT
             //OleDbDataReader reader = command.ExecuteReader();
@@ -41,40 +42,40 @@ namespace FamilyBudget
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TextBox[] tbs = { textBox1, textBox2, textBox3, textBox4,  textBox5, textBox6, textBox7,  textBox8, textBox9, textBox10,  textBox11, textBox12, textBox13,  textBox14, textBox15 };
+            
+            TextBox[] tbs = { textBox1, textBox2,  textBox3,  textBox4,  textBox5,  textBox6,  textBox7,  textBox8,  textBox9,  textBox10 };
             ComboBox[] cmb = { comboBox1, comboBox2, comboBox3, comboBox4, comboBox5 };
             int   j = 0, c = 0;
-            //while (tbs[i].Text.Length != 0 && cmb[c].Text.Length != 0 &&
-            //       tbs[i + 2].Text.Length != 0 && tbs[i + 3].Text.Length != 0)
-            //{
-
-            //    insert(tbs[j].Text, cmb[c].Text,
-            //   Convert.ToDouble(tbs[j + 2].Text), Convert.ToInt32(tbs[j + 3].Text));
-            //    i += 4;
-            //    j += 4;
-            //    c += 1;
-            //}
-            for (int i = 0; i < 15; i += 3)
+           
+            for (int i = 0; i < 10; i += 2)
             {
                 if (tbs[i].Text.Length != 0 && cmb[c].Text.Length != 0 &&
-                       tbs[i + 1].Text.Length != 0 && tbs[i + 2].Text.Length != 0)
+                       tbs[i + 1].Text.Length != 0)
                 {
 
                     insert(tbs[j].Text, cmb[c].Text,
-                   Convert.ToDouble(tbs[j + 1].Text), Convert.ToInt32(tbs[j + 2].Text));
+                   Convert.ToDouble(tbs[j + 1].Text));
                     
                 }
-                j += 3;
+                j += 2;
                 c += 1;
             }
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 10; i++)
                 tbs[i].Clear();
+          
+            
         }
 
-        private void ProductsEdit_FormClosed(object sender, FormClosedEventArgs e)
+       
+
+        private void button2_Click(object sender, EventArgs e)
         {
-            Form1 fr = new Form1();
-            fr.Update();
+                   
+            this.Size = new System.Drawing.Size(362, 301);
+            button1.Location = new Point(111,225);
+            textBox3.Show();
+            textBox4.Show();
+            comboBox2.Show();
         }
 
     }

@@ -24,7 +24,7 @@ namespace FamilyBudget
         {
             myConnection = new OleDbConnection(connectString);
             myConnection.Open();
-            string query = "SELECT ID FROM Family WHERE Naame LIKE '%" + textBox1.Text + "%' AND Pasword LIKE'%" + textBox2.Text + "%';";
+            string query = "SELECT ID FROM Family WHERE Naame LIKE '%" + textBox1.Text + "%' AND Pasword LIKE'%" + maskedTextBox1.Text + "%';";
             OleDbCommand command = new OleDbCommand(query, myConnection);
                 OleDbDataReader reader = command.ExecuteReader();
                 Form1 fr1 = new Form1();

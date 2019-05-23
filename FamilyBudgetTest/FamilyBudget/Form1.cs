@@ -131,7 +131,7 @@ namespace FamilyBudget
         private void comboBox1_Click(object sender, EventArgs e)
         {
             comboBox1.Text = "";
-            String query = "SELECT Type FROM Products";
+            String query = "SELECT Type FROM Products GROUP BY Type";
             OleDbCommand command = new OleDbCommand(query, myConnection);
 
             comboBox1.Items.Clear();
@@ -140,8 +140,7 @@ namespace FamilyBudget
             {
                 comboBox1.Items.Add(Convert.ToString(reader[0].ToString()));
             }
-            //connect->Close();
-            //this->getData();
+            
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -180,12 +179,6 @@ namespace FamilyBudget
             progressBar1.Maximum = Convert.ToInt32(budget);
             progres();
         }
-
-        private void progressBar1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button6_Click(object sender, EventArgs e)
         {
             panel1.Show();
@@ -223,11 +216,6 @@ namespace FamilyBudget
         {
             getProducts("SELECT * FROM Products WHERE Daate >= #" + dateTimePicker1.Value.Year + "/" + dateTimePicker1.Value.Month + "/" + dateTimePicker1.Value.Day + "# AND Daate <=#" + DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day + "#;");
         }
-
-       
-
-        
-
-       
+ 
     }
 }

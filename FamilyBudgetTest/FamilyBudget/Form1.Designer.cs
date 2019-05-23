@@ -221,7 +221,7 @@ namespace FamilyBudget
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(210, 20);
             this.progressBar1.TabIndex = 14;
-            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
+            
             // 
             // textBox1
             // 
@@ -259,7 +259,7 @@ namespace FamilyBudget
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.dataGridView2);
-            this.panel1.Location = new System.Drawing.Point(168, 128);
+            this.panel1.Location = new System.Drawing.Point(394, 79);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 271);
             this.panel1.TabIndex = 18;

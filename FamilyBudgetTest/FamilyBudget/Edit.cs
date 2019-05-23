@@ -30,15 +30,14 @@ namespace FamilyBudget
             int num_book = Convert.ToInt32(textBox5.Text);
             String query = "UPDATE Products SET [Product_name]='" + textBox1.Text +
                         "', [Type]='" + textBox2.Text +
-                        "', [Price]='" + textBox3.Text +
-                        "', [Member_id]='" + textBox4.Text +
-                        "' WHERE [id]=" + num_book + ";";
+                        "', [Price]=" + Convert.ToDouble(textBox3.Text) +
+                        " WHERE [id]=" + num_book + ";";
             OleDbCommand command = new OleDbCommand(query, myConnection);
             if (command.ExecuteNonQuery() > 0)
             {
                 MessageBox.Show("Updated");
             }
-        
+          
         }
 
         
